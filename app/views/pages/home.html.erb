@@ -1,0 +1,22 @@
+angular!
+
+<div ng-app="app">
+  <div ng-controller="pageCtrl">
+
+  <div id="tasks">
+
+  <p> completed tasks: {{ completed() }}</p>
+
+    <div ng-repeat="task in tasks track by $index">
+      <li ng-click="toggleCompletion(task)" ng-class="{strikethrough:task.completion}"> {{ task.text }}</li>
+      <li >{{ task.completion }}</li>
+      <br />
+      <a href="#" ng-click="deleteTask($index)"> Delete Task </a>
+      <input ng-model="task.text">
+    </div>
+
+    Add a new task:
+    new task: <input ng-model="newTask">
+    task completion (true or false): <input ng-model="newTaskCompletion">
+    <button ng-click="addTask(newTask, newTaskCompletion)"> add task </button>
+</div>
